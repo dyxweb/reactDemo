@@ -51,7 +51,7 @@ function selectTodos(todos, filter) {
         case VisibilityFilters.SHOW_ACTIVE:
             return todos.filter(todo => !todo.completed)
     }
-}
+}//点击下方按钮的筛选功能
 
 function select(state) {
     return {

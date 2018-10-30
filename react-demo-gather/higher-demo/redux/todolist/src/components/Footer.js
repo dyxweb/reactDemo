@@ -7,12 +7,12 @@ export default class Footer extends Component {
         }
 
         return (
-            <a href='#' onClick={e => {
+            <span onClick={e => {
                 e.preventDefault()
                 this.props.onFilterChange(filter)
             }}>
                 {name}
-            </a>
+            </span>
         )
     }
 
