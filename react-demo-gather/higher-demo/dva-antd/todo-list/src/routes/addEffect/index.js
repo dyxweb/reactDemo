@@ -1,6 +1,6 @@
 import dva, { connect } from 'dva';
 import React from 'react';
-import  './effect.css';
+import  './index.css';
 
 const CountApp = ({count, dispatch}) => {
 	

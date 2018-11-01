@@ -7,12 +7,11 @@ export default {
 
   effects: {
     *fetch({ payload }, { put, call, select }) {// eslint-disable-line
-      try{
+
         var data = yield call(request,'/users');
-      }catch(e){
-      	
-      }
-      yield put({ type: 'save',payload: data, });
+        return new Promise((res)=>{
+          res(data)
+        })
     },
   },
 

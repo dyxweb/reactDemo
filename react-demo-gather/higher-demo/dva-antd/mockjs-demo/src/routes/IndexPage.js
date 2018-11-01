@@ -6,17 +6,25 @@ import List from '../components/List';
 
 
 const IndexPage = ({ dispatch, index }) => {
- function click(f) {
- 	for (var i=0;i<f;i++){
-      dispatch({
-        type: 'index/fetch',
-      });
-  }
+ function click() {
+   const fetchs=[1,2,3,4,5]
+   const arr=fetchs.map(item=>{
+     return dispatch({
+       type:'index/fetch',
+       payload:item
+     })
+   })  //dva版本大于2
+   Promise.all(arr).then(data=>{
+     dispatch({
+       type:'index/save',
+       payload:data
+     })
+   })
  }
- console.log(index)
+
   return (
     <div>
-      <Button type="primary" onClick={()=>click(5)}>点击获取users</Button>
+      <Button type="primary" onClick={()=>click()}>点击获取users</Button>
       <List index={index} />
     </div>
   );

@@ -1,7 +1,7 @@
 import React from 'react';
 import { connect } from 'dva';
-import List from '../components/List';
-import Add from '../components/Add';
+import List from '../../components/List';
+import Add from '../../components/Add';
 
 const Lists = ({ dispatch, lists, inputs }) => {
   function handleDelete(id) {

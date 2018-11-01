@@ -1,7 +1,7 @@
 import React from 'react';
 import { connect } from 'dva';
-// import styles from './IndexPage.css';
-import  './IndexPage.css';
+// import styles from './index.css';
+import  './index.css';
 ////使用className在roadhogrc中配置"disableCSSMoudle":tue,与styles.只能用其一
 function IndexPage() {
   return (

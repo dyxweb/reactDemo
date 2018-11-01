@@ -1,7 +1,7 @@
 import React from 'react';
 import dva, { connect }  from 'dva';
 import { Link,routerRedux} from 'dva/router';
-import "./jump.css"
+import "./index.css"
 const getRouter = (props) => {
     //使用className在roadhogrc中配置"disableCSSMoudle":tue
     function handleclick(){

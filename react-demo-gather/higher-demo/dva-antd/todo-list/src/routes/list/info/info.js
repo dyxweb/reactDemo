@@ -5,8 +5,7 @@ const TabPane = Tabs.TabPane;
 import { Link,routerRedux} from 'dva/router';
 
 const List1 = (props) => {
-	  	var id=location.hash
-	  	
+	var id=location.pathname
   	id=id.split("/")
   	console.log(id)
   	var id1=id[2]
