@@ -14,6 +14,7 @@ const IndexPage = ({ dispatch, index }) => {
        payload:item
      })
    })  //dva版本大于2
+
    Promise.all(arr).then(data=>{
      dispatch({
        type:'index/save',
@@ -21,7 +22,7 @@ const IndexPage = ({ dispatch, index }) => {
      })
    })
  }
-
+ console.log(1)
   return (
     <div>
       <Button type="primary" onClick={()=>click()}>点击获取users</Button>

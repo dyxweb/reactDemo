@@ -4,13 +4,13 @@
 const Mock = require('mockjs');
 //拼接自己模拟的数据
 const data = Mock.mock({
-  'users|2': [//定义请求一次数据的个数
+  'users|2':
     {
       name: '@name',
       'age|1-100': 100,
       color: '@color',//生成随机的颜色
     },
-  ],
+
 });
 
 const database = data.users;
