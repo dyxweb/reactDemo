@@ -8,13 +8,13 @@ export default class Tabtset extends Component {
         <div className="container">
             <TabsContainer>
                 <div name = "first">
-                    第一帧
+                    one
                 </div>
                 <div name = "second">
-                    第二帧
+                    two
                 </div>
                 <div name = "third">
-                    第三帧
+                    three
                 </div>
             </TabsContainer>
         </div>   

@@ -1,23 +1,39 @@
 import React from 'react';
-import {BrowserRouter as Router, Route, Switch, Link} from 'react-router-dom';
-
+import {BrowserRouter as Router, Route, Switch, Link, Redirect} from 'react-router-dom';
 import Tab from './tab';
 import Gotop from './gotop';
+import './index.css' 
+import { Menu } from 'antd';
 
+const SubMenu = Menu.SubMenu;
 
-const getRouter = () => (
+const layout = (props) => {
+  const key = location.pathname.split('/')[1]
+  return (
+  <div>
     <Router>
-        <div>
-            <ul>
-                <li><Link to="/tab">tab</Link></li>
-                <li><Link to="/gotop">gotop</Link></li>
-            </ul>
+        <div className="all">
+        <Menu
+        style={{ width: 256 }}
+        defaultSelectedKeys={[key || 'tab']}
+        defaultOpenKeys={['react']}
+        mode="inline"
+      >
+        <SubMenu key="react" title="react">
+            <Menu.Item key="tab"><Link to="/tab">tab</Link></Menu.Item>
+            <Menu.Item key="gotop"><Link to="/gotop">gotop</Link></Menu.Item>
+        </SubMenu>
+      </Menu>
+        <div className="total_content">
             <Switch>
                 <Route path="/tab" component={Tab}/>
                 <Route path="/gotop" component={Gotop}/>
+                <Redirect to="/tab" />
             </Switch>
         </div>
+        </div>
     </Router>
-);
+  </div>  
+)};
 
-export default getRouter;
+export default layout;

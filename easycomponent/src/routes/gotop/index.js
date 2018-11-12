@@ -7,7 +7,7 @@ export default class Gotoptest extends Component {
     return (
         <div>
           <div style={{height:"3000px",width:"100%"}}></div>
-          <Gotop  top={300} style={{position:fixed,right:"50px",bottom:"50px"}}/>
+          <Gotop  top={300} style={{position:"fixed",right:"50px",bottom:"50px"}}/>
         </div> 
     );
   }
