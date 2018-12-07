@@ -1,0 +1,22 @@
+.dyx_balloon{
+    position: absolute;
+    background-color: #fff;
+    padding: 16px;
+    border:1px solid #eee;
+    max-width:100px;
+    word-wrap: break-word;
+}
+
+.dyx_balloon:after{
+    position: absolute;
+    width:8px;
+    height:8px;
+    content: ' ';
+    background-color: #fff;
+    transform: rotate(45deg);
+    border:1px solid #eee;
+    border-top:0;
+    border-left:0;
+    left:50%;
+    top: calc(100% - 4px);
+}
