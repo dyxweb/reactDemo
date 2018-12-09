@@ -10,6 +10,7 @@
 	line-height: 38px;
 	color: #000;
 	display: inline-block;
+	cursor:pointer;
 }
 .active{
 	color: #1890ff;

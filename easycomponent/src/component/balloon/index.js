@@ -11,7 +11,11 @@ export default class Tab extends Component {
       }
   }
 
+  addClick = ()=>{this.setState({ visible:false})}
+
   componentDidMount(){
+    document.body.addEventListener('click',this.addClick,false)
+    this.refs.dyx.removeEventListener('click',this.addClick,true)
   }
 
  open = (e) => {
@@ -32,9 +36,9 @@ render() {
             <div style={{height:"500px"}}></div>
             {triggerType === 'hover' ? 
             <div onMouseEnter={this.open} onMouseLeave={this.open} style={{display:'inline-block'}}>{trigger}</div> :
-            <div onClick={this.open}>{trigger}</div>}
+            <div onClick={this.open} style={{display:'inline-block'}} ref="dyx">{trigger}</div>}
             <div style={{ display: visible ? 'block' : 'none'}}>
-               <div style={{ top, left }} className="dyx_balloon" ref="dyx_balloon" onClick={this.open}>{children}</div>
+               <div style={{ top, left }} className="dyx_balloon" ref="dyx_balloon">{children}</div>
             </div>
         </div> 
     );

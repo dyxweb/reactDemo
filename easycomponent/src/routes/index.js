@@ -3,6 +3,7 @@ import {BrowserRouter as Router, Route, Switch, Link, Redirect} from 'react-rout
 import Tab from './tab';
 import Gotop from './gotop';
 import Balloon from './balloon';
+import Icon from './icon';
 import './index.css' 
 import { Menu } from 'antd';
 
@@ -24,6 +25,7 @@ const layout = (props) => {
             <Menu.Item key="tab"><Link to="/tab">tab</Link></Menu.Item>
             <Menu.Item key="gotop"><Link to="/gotop">gotop</Link></Menu.Item>
             <Menu.Item key="balloon"><Link to="/balloon">balloon</Link></Menu.Item>
+            <Menu.Item key="icon"><Link to="/icon">icon</Link></Menu.Item>
         </SubMenu>
       </Menu>
         <div className="total_content">
@@ -31,6 +33,7 @@ const layout = (props) => {
                 <Route path="/tab" component={Tab}/>
                 <Route path="/gotop" component={Gotop}/>
                 <Route path="/balloon" component={Balloon}/>
+                <Route path="/icon" component={Icon}/>
                 <Redirect to="/tab" />
             </Switch>
         </div>
