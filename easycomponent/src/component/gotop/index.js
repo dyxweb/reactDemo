@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 
-export default class Tab extends Component {
+export default class GoTop extends Component {
   constructor(props){
       super(props)
       this.state={

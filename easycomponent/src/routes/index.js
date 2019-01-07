@@ -4,6 +4,7 @@ import Tab from './tab';
 import Gotop from './gotop';
 import Balloon from './balloon';
 import Icon from './icon';
+import Dialog from './dialog';
 import './index.css' 
 import { Menu } from 'antd';
 
@@ -26,6 +27,7 @@ const layout = (props) => {
             <Menu.Item key="gotop"><Link to="/gotop">gotop</Link></Menu.Item>
             <Menu.Item key="balloon"><Link to="/balloon">balloon</Link></Menu.Item>
             <Menu.Item key="icon"><Link to="/icon">icon</Link></Menu.Item>
+            <Menu.Item key="dialog"><Link to="/dialog">dialog</Link></Menu.Item>
         </SubMenu>
       </Menu>
         <div className="total_content">
@@ -34,6 +36,7 @@ const layout = (props) => {
                 <Route path="/gotop" component={Gotop}/>
                 <Route path="/balloon" component={Balloon}/>
                 <Route path="/icon" component={Icon}/>
+                <Route path="/dialog" component={Dialog}/>
                 <Redirect to="/tab" />
             </Switch>
         </div>

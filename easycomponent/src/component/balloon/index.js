@@ -1,7 +1,19 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types'
 import './index.css'
 
-export default class Tab extends Component {
+export default class Balloon extends Component {
+    static propTypes = {
+        style: propTypes.object,
+        className: propTypes.string,
+        trigger: propTypes.element,
+        triggerType: propTypes.string,
+    }
+    static defaultProps = {
+        style: {},
+        className: "",
+        triggerType: "hover",
+    }
   constructor(props){
       super(props)
       this.state={
@@ -11,14 +23,13 @@ export default class Tab extends Component {
       }
   }
 
-  addClick = ()=>{this.setState({ visible:false})}
-
   componentDidMount(){
-    document.body.addEventListener('click',this.addClick,false)
-    this.refs.dyx.removeEventListener('click',this.addClick,true)
+      // 点击外部区域balloon消失，必须使用window监听，react事件都是通过document来代理的
+    this.props.triggerType !== "hover" ? window.addEventListener('click',() => this.setState({ visible: false })) : ''
   }
 
  open = (e) => {
+     e.stopPropagation();
      e.persist() // 异步回调后事件对象的继续使用
      this.setState({ visible: !this.state.visible},
         () => this.setState({
@@ -30,14 +41,14 @@ export default class Tab extends Component {
 
 render() {
     const {visible,top,left} = this.state
-    const {trigger,triggerType,children} = this.props
+    const {trigger,triggerType,children,className} = this.props
     return (
-        <div>
+        <div className={`dyx${className ? `${className}` : ''}`}>
             <div style={{height:"500px"}}></div>
             {triggerType === 'hover' ? 
             <div onMouseEnter={this.open} onMouseLeave={this.open} style={{display:'inline-block'}}>{trigger}</div> :
             <div onClick={this.open} style={{display:'inline-block'}} ref="dyx">{trigger}</div>}
-            <div style={{ display: visible ? 'block' : 'none'}}>
+            <div style={{ display: visible ? 'block' : 'none'}} className="balloon_container">
                <div style={{ top, left }} className="dyx_balloon" ref="dyx_balloon">{children}</div>
             </div>
         </div> 
