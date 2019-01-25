@@ -1,4 +1,4 @@
-
+ /*弹窗背景灰度*/
 .dialog_container{
     position: absolute;
     width: 100%;
@@ -12,23 +12,42 @@
     filter: alpha(opacity=30);
     z-index: 9990;
   }
-  /*弹窗背景灰度*/
   .dyx_dialog{
     width: 400px;
     height: 300px;
     background-color: #fff;
     border: 1px solid #000;
-    position: absolute;
+    position: fixed;
     left: 50%;
     top: 50%;
     margin-left: -200px;
     margin-top: -150px;
+    display:flex;
+    flex-direction: column;
+    z-index: 9999;
   }
   .title{
       display:flex;
       justify-content: space-between;
+      padding: 0 16px;
+      line-height: 40px;
+      font-size: 20px;
+      color: #000;
+  }
+  .close{
+      cursor: pointer;
   }
   .content{
-      text-align: center;
-      padding-top: 50px;
+      display: flex;
+      align-items: center;
+      flex-grow: 1;
+      justify-content: center;
+  }
+  .footer{
+      display: flex;
+      justify-content: flex-end;
+      padding: 8px 0;
+  }
+  .footer>button{
+      margin-right: 8px;
   }

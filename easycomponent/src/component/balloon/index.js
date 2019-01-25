@@ -1,13 +1,13 @@
 import React, { Component } from 'react';
-import PropTypes from 'prop-types'
+import PropTypes from 'prop-types';
 import './index.css'
 
 export default class Balloon extends Component {
     static propTypes = {
-        style: propTypes.object,
-        className: propTypes.string,
-        trigger: propTypes.element,
-        triggerType: propTypes.string,
+        style: PropTypes.object,
+        className: PropTypes.string,
+        trigger: PropTypes.element,
+        triggerType: PropTypes.string,
     }
     static defaultProps = {
         style: {},

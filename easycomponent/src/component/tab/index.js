@@ -2,8 +2,8 @@ import React from "react"
 import "./index.css"
 
 export default class TabsContainer extends React.Component{
-	constructor(  ){
-		super(  )
+	constructor(){
+		super()
 		this.state = { 
 			currentIndex : 0
 		}
