@@ -1,5 +1,4 @@
 import { observable, action } from 'mobx'
-let f=1;
 const todo = {
     state: observable({
         todos: [],
@@ -11,7 +10,7 @@ const todo = {
         {
             text:todo,
             completed:false,
-            id:f++
+            id: this.state.todos.reduce((maxId, todo) => Math.max(maxId, todo.id), -1) + 1,
         }]
     }),
 

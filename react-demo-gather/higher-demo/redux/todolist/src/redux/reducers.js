@@ -6,7 +6,6 @@ import { ADD_TODO, COMPLETE_TODO, SET_VISIBILITY_FILTER, VisibilityFilters } fro
 const { SHOW_ALL } = VisibilityFilters
 
 function visibilityFilter(state = SHOW_ALL, action) {
-	console.log(action.filter)
     switch (action.type) {
         case SET_VISIBILITY_FILTER:
             return action.filter
@@ -23,16 +22,15 @@ function todos(state = [], action) {
                 {
                     text: action.text,
                     completed: false,
-                    id:action.id
+                    id:state.reduce((maxId, todo) => Math.max(maxId, todo.id), -1) + 1,
                 }
             ]
         case COMPLETE_TODO:
             return state.map(todo =>
-        (todo.id === action.index)
-          ? {...todo, completed: !todo.completed}
-          : todo
-      )
-
+              (todo.id === action.index)
+                ? {...todo, completed: !todo.completed}
+                : todo
+            )
         default:
             return state
     }

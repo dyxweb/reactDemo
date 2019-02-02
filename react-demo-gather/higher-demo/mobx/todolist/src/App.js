@@ -7,7 +7,7 @@ const RouterCon = (props) => {
   return (
       <Router>
         <div>
-            <div style={{ display:'flex',justifyContent:'center'}}>
+            <div style={{ display:'flex',justifyContent:'center',marginBottom: '40px'}}>
               <Link to='/counter'>Counter</Link>
               <Link to='/todo' style={{marginLeft:'24px'}}>Todolist</Link>
             </div>
