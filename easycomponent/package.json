@@ -1,7 +1,7 @@
 {
   "name": "packexer",
   "version": "1.0.0",
-  "description": "",
+  "description": "easycomponent",
   "scripts": {
     "start": "webpack-dev-server --open"
   },
