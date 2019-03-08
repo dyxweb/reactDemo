@@ -28,8 +28,8 @@ const TabPane = Tabs.TabPane;
           <TabPane tab="Tab 2" key="manger">2</TabPane>
         </Tabs>
         <Switch>
-              <Route path="/fourth/:a" component={FourthDetail} />
-              <Redirect to="/fourth/detail" />
+          <Route path="/fourth/:a" component={FourthDetail} />
+          <Redirect to="/fourth/detail" />
         </Switch>
     </div>
     )

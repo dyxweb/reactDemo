@@ -108,25 +108,28 @@ const navconfig={
       })
     }
 
-  handleClick = (e) => {
-    this.setState({
-      current: e.key
-    });
-  }
+    handleClick = (e) => {
+      this.setState({
+        current: e.key
+      });
+    }
 
-  silderhandleClick = (e) => {
-    this.setState({
-      currentSilde: e.key,
-    });
-  }
+    silderhandleClick = (e) => {
+      this.setState({
+        currentSilde: e.key,
+      });
+    }
 
   render() {
-      //根据上方的topbar的选择进行slidebar的匹配，若部动态匹配则将下方的sildeconfig替换为navconfig.slide
+    //根据上方的topbar的选择进行slidebar的匹配，若不动态匹配则将下方的slideconfig替换为navconfig.slide
     const route=location.pathname.split('/')[1]
-    const sildeconfig=navconfig.slide.filter((item)=>item.route.indexOf(route)!==-1)
+    const slideconfig=navconfig.slide.filter((item)=>item.route.indexOf(route)!==-1);
+    // 可以在此定义导航的默认选中项，非受控形式，也可以绑定事件将选择项存在state中，在componentWillReceiveProps中更新状态
+    // const current = window.location.pathname.split('/')[1];
+    // const currentSilde= `${window.location.pathname.split('/')[1]}/${window.location.pathname.split('/')[2]}`;
     return (
       <div>
-        <div className={styles.top_nav}>
+        <div>
           <Menu
             onClick={this.handleClick}
             selectedKeys={[this.state.current]}
@@ -144,11 +147,10 @@ const navconfig={
               onClick={this.silderhandleClick}
               selectedKeys={[this.state.currentSilde]}
               mode="inline"
-              theme={this.state.theme}
               defaultOpenKeys={['first','second', 'third', 'fourth']}
               style={{width : 256, height: 'calc(100vh - 48px)'}}
             >
-            {sildeconfig.map(item=>(
+            {slideconfig.map(item=>(
               item.list.length>0 ? <SubMenu key={item.route} title={item.name}> 
               {item.list.map(
                 (item)=> <Menu.Item key={item.route}>

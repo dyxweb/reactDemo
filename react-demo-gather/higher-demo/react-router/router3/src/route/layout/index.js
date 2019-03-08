@@ -84,57 +84,49 @@ const navconfig={
     constructor() {
         super()
         this.state = {
-          current: 'first',
-          theme: 'dark',
-          currentSilde: '',
+          // current: 'first',
+          // currentSilde: '',
         }
     }
   
-    componentWillMount() {
-      window.addEventListener("popstate", this.handlePop.bind(this))
-  }
-  componentDidMount() {
-    this.setState({
-      current: window.location.hash.split('/')[1],
-      currentSilde:`${window.location.hash.split('/')[1]}/${window.location.hash.split('/')[2]}`
-  })//写在上述两个生命周期函数都可以，保证刷新时selectkey正常显示
-      window.removeEventListener("popstate", this.handlePop.bind(this))
-  }
-  handlePop(){
+  // componentDidMount() {
+  //   this.setState({
+  //     current: window.location.hash.split('/')[1],
+  //     currentSilde:`${window.location.hash.split('/')[1]}/${window.location.hash.split('/')[2]}`
+  //   })
+  // }
+
+  // componentWillReceiveProps() {
+  //   this.setState({
+  //     current: window.location.hash.split('/')[1],
+  //     currentSilde:`${window.location.hash.split('/')[1]}/${window.location.hash.split('/')[2]}`
+  //   })
+  // }
+
+    handleClick = (e) => {
       this.setState({
-          current: window.location.hash.split('/')[1],
-          currentSilde:`${window.location.hash.split('/')[1]}/${window.location.hash.split('/')[2]}`
-      })
-  }
+        current: e.key
+      });
+    }
 
-  handleClick = (e) => {
-    this.setState({
-      current: e.key
-    });
-  }
-
-  changeTheme = (value) => {
-    this.setState({
-      theme: value ? 'dark' : 'light',
-    });
-  }
-
-  silderhandleClick = (e) => {
-    this.setState({
-      currentSilde: e.key,
-    });
-  }
+    silderhandleClick = (e) => {
+      this.setState({
+        currentSilde: e.key,
+      });
+    }
 
   render() {
-      //根据上方的topbar的选择进行slidebar的匹配，若部动态匹配则将下方的sildeconfig替换为navconfig.slide
+    //根据上方的topbar的选择进行slidebar的匹配，若不动态匹配则将下方的sildeconfig替换为navconfig.slide
     const route=location.hash.split('/')[1]
     const sildeconfig=navconfig.slide.filter((item)=>item.route.indexOf(route)!==-1)
+    // 可以在此定义导航的默认选中项，非受控形式，也可以绑定事件将选择项存在state中，在componentWillReceiveProps中更新状态
+    const current = window.location.hash.split('/')[1];
+    const currentSilde= `${window.location.hash.split('/')[1]}/${window.location.hash.split('/')[2]}`;
     return (
       <div>
-        <div className={styles.top_nav}>
+        <div>
           <Menu
-            onClick={this.handleClick}
-            selectedKeys={[this.state.current]}
+            selectedKeys={[current]}
             mode="horizontal"
           >
             {navconfig.top.map((item)=>(
@@ -146,10 +138,9 @@ const navconfig={
         </div>
         <div className={styles.all}> 
           <Menu
-              onClick={this.silderhandleClick}
-              selectedKeys={[this.state.currentSilde]}
+              selectedKeys={[currentSilde]}
               mode="inline"
-              theme={this.state.theme}
+              theme='light'
               defaultOpenKeys={['first', 'second', 'third', 'fourth']}
               style={{width : 256, height: 'calc(100vh - 48px)'}}
             >
