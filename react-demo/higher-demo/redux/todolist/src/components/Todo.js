@@ -1,6 +1,3 @@
-/**
- * Created by chengfan on 2017/6/6.
- */
 import React, { Component, PropTypes } from 'react'
 
 export default class Todo extends Component {
