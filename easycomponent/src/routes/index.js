@@ -17,7 +17,7 @@ const layout = (props) => {
     <Router>
         <div className="all">
         <Menu
-        style={{ width: 256 }}
+        style={{ width: 256, height: '100vh' }}
         defaultSelectedKeys={[key || 'tab']}
         defaultOpenKeys={['react']}
         mode="inline"

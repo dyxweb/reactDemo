@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import './index.css'
 
+// 计时器的变量
+let f;
 export default class Balloon extends Component {
     static propTypes = {
         style: PropTypes.object,
@@ -28,16 +30,27 @@ export default class Balloon extends Component {
     this.props.triggerType !== "hover" ? window.addEventListener('click',() => this.setState({ visible: false })) : ''
   }
 
- open = (e) => {
-     e.stopPropagation();
-     e.persist() // 异步回调后事件对象的继续使用
-     this.setState({ visible: !this.state.visible},
+  // 切换气泡的显示隐藏
+  toggleVisible = (e) => {
+    e.stopPropagation();
+    e.persist() // 异步回调后事件对象的继续使用
+    this.setState({ visible: !this.state.visible},
         () => this.setState({
             left:e.target.offsetLeft-(this.refs.dyx_balloon.offsetWidth/2 - e.target.offsetWidth/2),
             top: e.target.offsetTop-(this.refs.dyx_balloon.offsetHeight+8)
         })
-     )
- } 
+    )
+  } 
+
+  // 气泡关闭
+  close = (time,e) => {
+      f =setTimeout(() => this.setState({visible: false}), time)
+  }
+
+  // 清除计时器
+  clearTime = () => {
+      clearTimeout(f)
+  }
 
 render() {
     const {visible,top,left} = this.state
@@ -46,10 +59,30 @@ render() {
         <div className={`dyx${className ? `${className}` : ''}`}>
             <div style={{height:"500px"}}></div>
             {triggerType === 'hover' ? 
-            <div onMouseEnter={this.open} onMouseLeave={this.open} style={{display:'inline-block'}}>{trigger}</div> :
-            <div onClick={this.open} style={{display:'inline-block'}} ref="dyx">{trigger}</div>}
+              <div
+                onMouseEnter={this.toggleVisible}
+                onMouseLeave={(e) => this.close(600,e)}
+                style={{display:'inline-block'}}
+               > 
+                 {trigger}
+               </div> :
+                <div
+                  onClick={this.toggleVisible}
+                  style={{display:'inline-block'}}
+                  ref="dyx"
+                >
+                  {trigger}
+                </div>}
             <div style={{ display: visible ? 'block' : 'none'}} className="balloon_container">
-               <div style={{ top, left }} className="dyx_balloon" ref="dyx_balloon">{children}</div>
+               <div
+                 style={{ top, left }}
+                 className="dyx_balloon"
+                 ref="dyx_balloon"
+                 onMouseEnter={this.clearTime}
+                 onMouseLeave={(e) => this.close(0,e)}
+                >
+                  {children}
+                </div>
             </div>
         </div> 
     );
