@@ -34,7 +34,8 @@ class Layout extends React.Component {
       type: 'change_role',
       role
     })
-    this.forceUpdate()
+    // 切换角色之后重新进入该路由判断是否有权限
+    this.props.history.push(location.pathname)
   }
 
   render() {
