@@ -4,7 +4,7 @@ import {BrowserRouter as Router, Route, Switch, Link, Redirect} from 'react-rout
 import SecondId from '../second/secondId'
 
 const confirm = Modal.confirm;
-class Second extends React.component {
+class Second extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -112,7 +112,7 @@ export default NewSecond;
 // import SecondId from '../second/secondId'
 
 // const confirm = Modal.confirm;
-// class Second extends React.component {
+// class Second extends React.Component {
 //   constructor(props) {
 //     super(props);
 //     this.state = {
@@ -193,7 +193,7 @@ export default NewSecond;
 //         )}
 //         <Button type="primary" onClick={this.infoSubmit}>确定</Button>
 //         {options.length > 1 && <Button type="primary" onClick={this.clearOption}>清空选项</Button>}
-//         <div className="price">
+//         <div className="prize">
 //           {options.map((item, index) => {
 //             if (index === 4) {
 //               return (
@@ -203,11 +203,13 @@ export default NewSecond;
 //                 </React.Fragment>
 //               )
 //             } else {
-//               <div className="priceItem" className={`priceItem ${activeKey === index ? `activeItem` : ``}`}>{item}</div>
+                //  return (
+//                 <div key={index} className="priceItem" className={`priceItem ${activeKey === index ? `activeItem` : ``}`}>{item}</div>
+                //  )
 //             }
 //           })}
 //         </div>
-//         {(options.length > 1 && options.length < 5) && <Button type="primary" onClick={this.chooseOption}>选择</Button>}
+//         {(options.length > 1 && options.length < 5) && <Button type="primary" onClick={this.chooseOption} className="priceItem">选择</Button>}
 //         <Switch>
 //           <Route path="/second/:id" component={SecondId} />
 //           <Redirect to="/second/a" />
