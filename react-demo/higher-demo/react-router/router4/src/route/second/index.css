@@ -1,0 +1,19 @@
+.prize {
+    width: 100%;
+    max-width: 400px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+.priceItem {
+    background: #eee;
+    line-height: 100px;
+    width: 100px;
+    text-align: center;
+    font-size: 18px;
+    margin: 20px 20px 0 0;
+}
+.activeItem {
+    background: skyblue;
+}

@@ -209,7 +209,7 @@ export default NewSecond;
 //             }
 //           })}
 //         </div>
-//         {(options.length > 1 && options.length < 5) && <Button type="primary" onClick={this.chooseOption} className="priceItem">选择</Button>}
+//         {(options.length > 1 && options.length < 5) && <Button type="primary" onClick={this.chooseOption}>选择</Button>}
 //         <Switch>
 //           <Route path="/second/:id" component={SecondId} />
 //           <Redirect to="/second/a" />
