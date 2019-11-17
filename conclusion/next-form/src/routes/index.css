@@ -1,0 +1,6 @@
+.all{
+    display:flex;
+}
+.total_content{
+    width:calc(100vw - 256px)
+}
