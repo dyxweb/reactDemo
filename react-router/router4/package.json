@@ -1,7 +1,7 @@
 {
-  "name": "easycomponent",
+  "name": "router4",
   "version": "1.0.0",
-  "description": "easycomponent",
+  "description": "",
   "scripts": {
     "start": "webpack-dev-server --open"
   },
