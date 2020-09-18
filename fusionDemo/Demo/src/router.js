@@ -12,8 +12,6 @@ export default class Routesas extends React.Component {
             <Route exact path="/normal" component={Normal} />
             <Route exact path="/better" component={Better} />
             <Route path="/best" component={Best} />
-            <Route path="/best/add" component={Best} />
-            <Route path="/best/:editId/edit" component={Best} />
             <Redirect from='/' to='/normal' />
           </Switch>
       </Router>
