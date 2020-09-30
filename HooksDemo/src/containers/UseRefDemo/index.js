@@ -2,8 +2,9 @@ import React, { useState } from 'react';
 import DemoOne from './demoOne';
 import DemoTwo from './demoTwo';
 
-const UseStateDemo = () => {
+const UseRefDemo = () => {
   const [showOne, setShowOne] = useState(true);
+
   return (
     <div>
       {showOne ? <DemoOne /> : <DemoTwo />}
@@ -12,7 +13,7 @@ const UseStateDemo = () => {
         {showOne ? 'demoTwo' : 'demoOne'}
       </button>
     </div>
-  );
-};
+  )
+}
 
-export default UseStateDemo;
+export default UseRefDemo;

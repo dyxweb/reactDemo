@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import DemoOne from './demoOne';
 import DemoTwo from './demoTwo';
 
-const UseStateDemo = () => {
+const CaptureValueDemo = () => {
   const [showOne, setShowOne] = useState(true);
   return (
     <div>
@@ -15,4 +15,4 @@ const UseStateDemo = () => {
   );
 };
 
-export default UseStateDemo;
+export default CaptureValueDemo;

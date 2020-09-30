@@ -1,3 +1,6 @@
+/**
+ * 避免在每次渲染时都进行高开销的计算
+ */
 import React, { useState, useMemo } from 'react';
 
 const DemoOne = (props) => {
