@@ -1,0 +1,49 @@
+.partContent-all {
+	width: 100%;
+	height: 100vh;
+}
+.partContent-top {
+	width: 100%;
+	height: 60px;
+	background: green;
+}
+.partContent-content {
+	box-sizing: border-box;
+	height: calc(100vh - 60px);
+	overflow-y: auto;
+	padding: 24px 100px;
+	background: #eee;
+	display: flex;
+	justify-content: space-between;
+	align-items: flex-start;
+}
+.partContent-left {
+	height: 2000px;
+	width: 72%;
+	border: 1px solid green;
+}
+.partContent-right {
+	position: relative;
+	height: 1500px;
+	width: 23%;
+}
+.partContent-right-part-one {
+	width: 100%;
+	margin-bottom: 24px;
+	height: 100px;
+	background: red;
+}
+
+.partContent-right-part-two {
+	width: 100%;
+	margin-bottom: 24px;
+	height: 200px;
+	background: purple;
+}
+
+.partContent-right-part-three {
+	width: 100%;
+	margin-bottom: 24px;
+	height: 150px;
+	background: yellow;
+}

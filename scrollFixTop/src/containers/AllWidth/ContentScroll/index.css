@@ -1,0 +1,28 @@
+.allContent-all {
+  height: 100vh;
+  width: 100%;
+}
+.allContent-top {
+  width: 100%;
+  height: 60px;
+  background: green;
+}
+.allContent-all-content {
+  position: relative;
+  width: 100%;
+  height: calc(100vh - 60px);
+  overflow-y: auto;
+}
+.allContent-top-content {
+  height: 400px;
+  background: #eee;
+}
+.allContent-nav {
+  width: 100%;
+  height: 60px;
+  background: red;
+}
+.allContent-content {
+  height: 1500px;
+  border: 1px solid #eeeeee;
+}

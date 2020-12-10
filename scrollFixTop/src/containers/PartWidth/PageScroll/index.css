@@ -1,0 +1,42 @@
+.partPage-top {
+  width: 100%;
+  height: 60px;
+  background: green;
+}
+.partPage-content {
+  padding: 24px 100px;
+  background: #eee;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+.partPage-left {
+  height: 2000px;
+  width: 72%;
+  border: 1px solid green;
+}
+.partPage-right {
+  position: relative;
+  height: 1500px;
+  width: 23%;
+}
+.partPage-right-part-one {
+  width: 100%;
+  margin-bottom: 24px;
+  height: 100px;
+  background: red;
+}
+
+.partPage-right-part-two {
+  width: 100%;
+  margin-bottom: 24px;
+  height: 200px;
+  background: purple;
+}
+
+.partPage-right-part-three {
+  width: 100%;
+  margin-bottom: 24px;
+  height: 150px;
+  background: yellow;
+}
