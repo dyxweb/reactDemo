@@ -24,6 +24,9 @@ const DemoTwo = () => {
       <div>
         b: {b}
       </div>
+      <div>
+        num: {exerNum}
+      </div>
       <button onClick={changeNum}>click</button>
     </div>
   );

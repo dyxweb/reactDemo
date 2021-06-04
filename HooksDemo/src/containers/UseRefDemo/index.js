@@ -1,19 +1,21 @@
-import React, { useState } from 'react';
-import DemoOne from './demoOne';
-import DemoTwo from './demoTwo';
+/**
+ * ref绑定元素的使用
+ */
+ import React, { useRef } from 'react';
 
-const UseRefDemo = () => {
-  const [showOne, setShowOne] = useState(true);
-
-  return (
-    <div>
-      {showOne ? <DemoOne /> : <DemoTwo />}
-      <hr />
-      <button onClick={ () => setShowOne(!showOne)}>
-        {showOne ? 'demoTwo' : 'demoOne'}
-      </button>
-    </div>
-  )
-}
-
-export default UseRefDemo;
+ const UseRefDemo = () => {
+   const refEle = useRef();
+ 
+   const clickToFocus = () => {
+     refEle && refEle.current && refEle.current.focus();
+   }
+ 
+   return (
+     <div>
+       <input ref={refEle} type="text" />
+       <button onClick={clickToFocus}>click</button>
+     </div>
+   );
+ }
+ 
+ export default UseRefDemo;
