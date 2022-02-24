@@ -1,0 +1,8 @@
+.idea
+.vscode
+.project
+package-lock.json
+node_modules
+dist
+yarn.lock
+public
